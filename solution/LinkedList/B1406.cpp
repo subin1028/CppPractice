@@ -1,7 +1,13 @@
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <list>
 using namespace std;
 
 int main(void){
+    cin.tie(0);
+    ios::sync_with_stdio(0);
     list<char> L = {};
     string s;
     int count;
