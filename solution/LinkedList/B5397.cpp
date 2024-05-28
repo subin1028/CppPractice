@@ -12,23 +12,23 @@ int main(void){
         cin >> str;
         auto t = P.begin();
         for(auto c: str){
-            if(isalnum(c) == 0){
+            if(c == '<') {
+                if(t != P.begin()) t--;
+            }
+            else if(c == '-'){
                 if(t != P.begin()){
-                    if(c == '<') {t--; cout << "<" << *t << endl;}
-                    else if(c == '-'){
-                        t--;
-                        t = P.erase(t);
-                        cout << "-" << *t << endl;
-                    }
-                    else if(t != P.end() && c == '>') {t++; cout << ">" << *t << endl;}
-                }
+                    t--;
+                    t = P.erase(t);
+                }     
+            }
+            else if(c == '>') {
+                if(t != P.end()) t++;
             }
             else {
                 P.insert(t, c);
-                cout << "+" << c << *t << endl;
             }
         }
-
+            
         for(auto c : P){
             cout << c;
         }
@@ -36,3 +36,4 @@ int main(void){
         P.clear();
     }
 }
+
