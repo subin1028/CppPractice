@@ -15,5 +15,5 @@ int main(void){
     cout << S.top() << endl;
     S.pop();
     if(S.empty()) cout << "S is empty" << endl;
-    cout << S.top() << endl; 
+    cout << S.top() << endl;  //runtime error
 }
