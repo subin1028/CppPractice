@@ -2,51 +2,27 @@
 using namespace std;
 
 int main(void){
-    stack<int> FS;
-    stack<int> RS;
-    stack<int> A;
-    A.push(-1);
+    int a[1000001];
+    int ans[1000001];
+    stack<int> S;
 
     int num;
-    int small = 0;
     int cnt; 
     cin >> cnt;
 
     for(int i = 0; i < cnt; i++){
         cin >> num;
-        FS.push(num);
+        a[i] = num;
     }
 
-    RS.push(FS.top());
-    FS.pop();
-
-    for(int i = 0; i < cnt-1; i++){
-        num = FS.top();
-        FS.pop();
-        if(RS.top() > num){
-            A.push(RS.top());
-            if(num > small){
-                if (small == 0) small = num;
-                else RS.push(num);
-            }
-            
-        }
-        else {
-            while(num >= RS.top()){
-                RS.pop();
-                if(RS.empty()){
-                    A.push(-1);
-                    break;
-                }
-            }
-            RS.push(num);
-        }
+    for(int i = cnt-1; i > 0; i--){
+            while(!S.empty() && a[i] >= S.top()) S.pop();
+            if(S.empty()) ans[i] = -1;
+            else ans[i] = S.top();
+            S.push(a[i]);
     }
 
-    while(!A.empty()){
-        cout << A.top() << " ";
-        A.pop();
-    }
+    for(int i = 0; i < cnt; i++) cout << ans[i] << ' ';
 }
 
 
