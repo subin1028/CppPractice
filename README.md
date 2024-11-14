@@ -1,2 +1,2 @@
 # CppPractice
-Looking foward to pass coding test through cpp
+Looking forward to pass coding test through cpp
